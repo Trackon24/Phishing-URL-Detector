@@ -106,44 +106,36 @@ cd backend/ml_api
 Install the required Python dependencies:
 
 bash
-Copy code
 pip install -r requirements.txt
 Start the FastAPI server:
 
 bash
-Copy code
 python -m uvicorn app:app --reload
 The backend API will be available at:
 
 cpp
-Copy code
 http://127.0.0.1:8000
 You can also access the interactive API documentation at:
 
 arduino
-Copy code
 http://127.0.0.1:8000/docs
 ```
 2️⃣ Frontend (React)
 Open a new terminal window and navigate to the frontend directory:
 
 ```bash
-Copy code
 cd frontend/phishing_ui
 Install frontend dependencies:
 
 bash
-Copy code
 npm install
 Start the React development server:
 
 bash
-Copy code
 npm start
 The frontend application will run at:
 
 arduino
-Copy code
 http://localhost:3000
 ```
 🧪 Example Test URLs
