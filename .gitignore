@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pkl
+.env
+
+# Node
+node_modules/
+
+# Database
+*.db
+
+# OS
+.DS_Store
+.ipynb_checkpoints/
