@@ -1,14 +1,14 @@
 🔐 Phishing URL Detection System
 
-A full-stack machine learning web application that detects phishing URLs in real time using handcrafted URL features, a trained ML model, and a modern React frontend.
+  A full-stack machine learning web application that detects phishing URLs in real time using handcrafted URL features, a trained ML model, and a modern React frontend.
 
 🚀 Overview
 
 Phishing attacks are one of the most common cybersecurity threats. This project provides a real-time phishing URL detection system that analyzes URLs and classifies them as:
 
-✅ Legitimate
+  ✅ Legitimate
 
-🚨 Phishing
+   🚨 Phishing
 
 The system combines machine learning, FastAPI, and React to deliver an end-to-end cybersecurity solution.
 
