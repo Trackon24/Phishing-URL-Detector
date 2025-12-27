@@ -1,135 +1,166 @@
-🔐 Phishing URL Detection System
+# 🔐 Phishing URL Detection System
 
-  A full-stack machine learning web application that detects phishing URLs in real time using handcrafted URL features, a trained ML model, and a modern React frontend.
+A **full-stack machine learning web application** that detects phishing URLs in real time using handcrafted URL features, a trained ML model, and a modern React frontend.
 
-🚀 Overview
+---
 
-Phishing attacks are one of the most common cybersecurity threats. This project provides a real-time phishing URL detection system that analyzes URLs and classifies them as:
+## 🚀 Overview
 
-  ✅ Legitimate
+Phishing attacks are among the most common and dangerous cybersecurity threats today.  
+This project provides a **real-time phishing URL detection system** that analyzes URLs and classifies them as:
 
-   🚨 Phishing
+- ✅ **Legitimate**
+- 🚨 **Phishing**
 
-The system combines machine learning, FastAPI, and React to deliver an end-to-end cybersecurity solution.
+The system combines **Machine Learning**, **FastAPI**, and **React** to deliver an end-to-end cybersecurity solution with explainability and scan history support.
 
-🧠 How It Works
+---
 
-User enters a URL in the web interface
+## 🧠 How It Works
 
-URL features are extracted (length, digits, special characters, subdomains, etc.)
+1. The user enters a URL in the web interface  
+2. URL features are extracted, such as:
+   - URL length
+   - Number of digits
+   - Special characters
+   - Subdomains
+   - Suspicious keywords
+3. A trained **Random Forest classifier** predicts the phishing probability  
+4. A **risk level** (Low / Medium / High) is assigned based on thresholds  
+5. Results are displayed instantly with explanations  
+6. Scan history is stored in a database and can be viewed or cleared  
+7. Trusted domains (Google, GitHub, OpenAI, etc.) are whitelisted and bypass the ML model  
 
-A trained Random Forest model predicts phishing probability
+---
 
-Risk level is assigned based on a threshold
+## 🛠️ Tech Stack
 
-Results are displayed instantly with explanations
+### 🔹 Frontend
+- React (JavaScript)
+- HTML, CSS
+- Fetch API
+- Dark / Light Mode UI
 
-Scan history is stored and can be viewed or cleared
+### 🔹 Backend
+- FastAPI
+- Python
+- SQLite (scan history storage)
+- Joblib (model persistence)
 
-Trusted domains (e.g. Google, GitHub, OpenAI) are whitelisted and bypass the ML model.
+### 🔹 Machine Learning
+- Scikit-learn
+- Random Forest Classifier
+- Hand-engineered URL features
+- Probability-based risk scoring
 
-🛠️ Tech Stack
-🔹 Frontend
+---
 
-React (JavaScript)
+## ✨ Features
 
-HTML, CSS
+- Real-time phishing URL detection  
+- Risk levels: **Low / Medium / High**  
+- ML Risk Score (confidence percentage)  
+- Feature-based explanations  
+- Scan history with database storage  
+- Clear scan history option  
+- Dark / Light mode UI  
+- Trusted domain whitelist  
+- Invalid URL handling  
 
-Fetch API
+---
 
-Dark / Light Mode UI
+## 📂 Project Structure
 
-🔹 Backend
-
-FastAPI
-
-Python
-
-SQLite (scan history)
-
-Joblib (model persistence)
-
-🔹 Machine Learning
-
-Scikit-learn
-
-Random Forest Classifier
-
-Hand-engineered URL features
-
-Probability-based risk scoring
-
-✨ Features
-
-- Real-time phishing URL detection
-
-- Risk levels: Low / Medium / High
-
-- ML Risk Score (confidence)
-
-- Feature-based explanations
-
-- Scan history with database storage
-
-- Clear history option
-
-- Dark / Light mode
-
-- Trusted domain whitelist
-
-- Invalid URL handling
-
-📂 Project Structure
+```text
 Phishing_Detection/
-│
 ├── backend/
-│   ├── ml_api/
-│   │   ├── app.py
-│   │   ├── feature_extractor.py
-│   │   ├── phishing_rf_final.pkl
-│   │   ├── feature_columns.pkl
-│   │   └── scans.db
-│
+│   └── ml_api/
+│       ├── app.py
+│       ├── database.py
+│       ├── explanation.py
+│       ├── feature_extractor.py
+│       ├── phishing_rf_final.pkl
+│       ├── feature_columns.pkl
+│       └── scans.db
 ├── frontend/
 │   └── phishing_ui/
-│       ├── src/
-│       │   ├── App.jsx
-│       │   ├── App.css
-│       │   └── index.js
-│
+│       ├── public/
+│       └── src/
+│           ├── App.jsx
+│           ├── App.css
+│           └── index.js
 └── README.md
+```
+## ▶️ How to Run Locally
 
-▶️ How to Run Locally
-1️⃣ Backend (FastAPI)
+Follow the steps below to run the project on your local machine.
+
+---
+
+### 1️⃣ Backend (FastAPI)
+
+Open a terminal and navigate to the backend directory:
+
+```bash
 cd backend/ml_api
+Install the required Python dependencies:
+
+bash
+Copy code
+pip install -r requirements.txt
+Start the FastAPI server:
+
+bash
+Copy code
 python -m uvicorn app:app --reload
+The backend API will be available at:
 
-
-Backend will run at:
-
+cpp
+Copy code
 http://127.0.0.1:8000
+You can also access the interactive API documentation at:
 
+arduino
+Copy code
+http://127.0.0.1:8000/docs
+```
 2️⃣ Frontend (React)
+Open a new terminal window and navigate to the frontend directory:
+
+```bash
+Copy code
 cd frontend/phishing_ui
+Install frontend dependencies:
+
+bash
+Copy code
 npm install
+Start the React development server:
+
+bash
+Copy code
 npm start
+The frontend application will run at:
 
-
-Frontend will run at:
-
+arduino
+Copy code
 http://localhost:3000
-
+```
 🧪 Example Test URLs
-https://secure-login-paypal-update.com   → Phishing
-https://www.google.com                   → Legitimate
-http://free-gift-card123.net             → Phishing
+Use the following URLs to test the application:
+
+https://secure-login-paypal-update.com → 🚨 Phishing
+
+https://www.google.com → ✅ Legitimate
+
+http://free-gift-card123.net → 🚨 Phishing
 
 📊 Model Performance
-
 Accuracy: ~80–85%
 
 ROC-AUC: ~0.90
 
-Trained on 800,000+ URLs
+Training Dataset: 800,000+ URLs
 
 Balanced precision and recall
+
